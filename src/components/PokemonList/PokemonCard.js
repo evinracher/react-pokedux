@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Label, Grid, Icon } from 'semantic-ui-react';
-import { MAIN_COLOR, FAV_COLOR, ICON } from '../../utils/constants';
+import { MAIN_COLOR, FAV_COLOR } from '../../utils/constants';
 import './styles.css';
 
 export default function PokemonCard() {

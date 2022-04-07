@@ -6,7 +6,7 @@ const PokemonList = () => {
   return (
     <Grid className='PokemonList'>
       {pokemons.map(pokemon => (
-        <PokemonCard />
+        <PokemonCard key={pokemon?.id} />
       ))}
     </Grid>
   );
