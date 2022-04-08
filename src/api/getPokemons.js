@@ -1,2 +1,6 @@
 import axiosConfig from "./config";
-export const getPokemons = (limit = 151) => axiosConfig.get(`/pokemon?limit=${limit}`);
+export const getPokemons = (limit = 151) =>
+  axiosConfig.get(`/pokemon?limit=${limit}`)
+    .then(response =>
+      response.data
+    );

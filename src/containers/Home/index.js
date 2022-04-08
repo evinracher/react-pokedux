@@ -1,25 +1,18 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Searcher from '../../components/Searcher';
 import PokemonList from '../../components/PokemonList';
 import { getPokemons } from '../../api/getPokemons';
 import { setPokemons } from '../../actions';
 import './styles.css';
 
-const mapStateToProps = state => ({
-  pokemons: state.pokemons
-});
-
-const mapDispatchToProps = dispatch => ({
-  setPokemons: value => dispatch(setPokemons(value))
-});
-
-function Home({ pokemons, setPokemons }) {
-
+function Home() {
+  const dispatch = useDispatch();
+  const pokemons = useSelector(state => state.pokemons);
   useEffect(() => {
     getPokemons()
-      .then(response => {
-        setPokemons(response.data.results);
+      .then(data => {
+        dispatch(setPokemons(data.results));
       })
       .catch(error => console.error(error));
   }, []);
@@ -32,4 +25,4 @@ function Home({ pokemons, setPokemons }) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;
