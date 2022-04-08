@@ -1,7 +1,8 @@
-import { SET_POKEMONS } from "../actions/type";
+import { SET_POKEMONS, SET_ERROR, CLEAR_ERROR } from "../actions/types";
 
 const initialState = {
-  pokemons: []
+  pokemons: [],
+  error: ''
 };
 
 const pokemonReducer = (state = initialState, action) => {
@@ -11,6 +12,10 @@ const pokemonReducer = (state = initialState, action) => {
         ...state,
         pokemons: action.payload
       };
+    case SET_ERROR:
+      return { ...state, error: action.payload.message };
+    case CLEAR_ERROR:
+      return { ...state, error: '' };
     default:
       return state;
   }
