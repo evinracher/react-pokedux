@@ -11,7 +11,6 @@ export const fetchPokemons = createAsyncThunk(
   async (_, { dispatch }) => {
     dispatch(toggleLoader());
     try {
-      console.log("getting pokemons...");
       const response = await getPokemons();
       const pokemons = response.results;
       const pokemonsWithDetails = await getPokemonsWithDetails(pokemons);
@@ -20,7 +19,6 @@ export const fetchPokemons = createAsyncThunk(
       console.error(error);
       dispatch(setError({ error: error, message: 'Error fetching pokemons' }));
     } finally {
-      console.log("Here");
       dispatch(toggleLoader());
     }
   }
