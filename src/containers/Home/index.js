@@ -9,8 +9,8 @@ import './styles.css';
 
 function Home() {
   const dispatch = useDispatch();
-  const pokemons = useSelector(state => state.pokemons);
-  const loading = useSelector(state => state.loading);
+  const pokemons = useSelector(state => state.pokemons.pokemons);
+  const loading = useSelector(state => state.general.loading);
 
   useEffect(() => {
     dispatch(toggleLoader());
