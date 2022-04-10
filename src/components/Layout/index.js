@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Message } from 'semantic-ui-react';
 import Menu from '../Menu';
-import { clearError } from '../../actions';
+import { clearError } from '../../slices/general';
 import './styles.css';
 
 const Layout = ({ children }) => {

@@ -3,6 +3,7 @@ import { setError, setPokemons, toggleLoader } from '../actions';
 import { FETCH_POKEMONS_DETAILS } from '../actions/types';
 import { getPokemonsWithDetails } from '../api/getPokemons';
 
+// DEPRECATED
 function* fetchPokemonsWithDetails(action) {
   try {
     const pokemonsWithDetails = yield call(getPokemonsWithDetails, action.payload);

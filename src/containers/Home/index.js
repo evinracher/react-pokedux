@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/Loader';
 import Searcher from '../../components/Searcher';
 import PokemonList from '../../components/PokemonList';
-import { fetchPokemonsDetails, setError, toggleLoader } from '../../actions';
 import { getPokemons } from '../../api/getPokemons';
+import { fetchPokemons } from '../../slices/pokemon';
+import { setError, toggleLoader } from '../../slices/general';
 import './styles.css';
 
 function Home() {
@@ -13,14 +14,7 @@ function Home() {
   const loading = useSelector(state => state.general.loading);
 
   useEffect(() => {
-    dispatch(toggleLoader());
-    getPokemons()
-      .then((res) => {
-        dispatch(fetchPokemonsDetails(res.results));
-      })
-      .catch((error) => {
-        dispatch(setError({ message: 'An error has been occurred', error }));
-      });
+    dispatch(fetchPokemons());
   }, []);
 
   return (

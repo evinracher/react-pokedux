@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Image, Label, Grid, Icon } from 'semantic-ui-react';
-import { toggleFavorite } from '../../actions';
+import { setFavorite } from '../../slices/pokemon';
 import { MAIN_COLOR, FAV_COLOR, DEFAULT_COLOR } from '../../utils/constants';
 import './styles.css';
 
@@ -9,7 +9,7 @@ const PokemonCard = ({ pokemon }) => {
   const dispatch = useDispatch();
 
   const handleAddToFavorite = () => {
-    dispatch(toggleFavorite(pokemon.id));
+    dispatch(setFavorite(pokemon.id));
   };
 
   const color = pokemon.favorite ? FAV_COLOR : DEFAULT_COLOR;
